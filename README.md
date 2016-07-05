@@ -5,7 +5,6 @@
 * static 资源
 * templates html页面
 
-
 ## migrations
 数据库迁移
 + python manage.py db init 创建迁移仓库
