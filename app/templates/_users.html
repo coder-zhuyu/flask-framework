@@ -1,0 +1,32 @@
+<table class="table table-striped">
+   <thead>
+      <tr>
+         <th>用户</th>
+         <th>用户名</th>
+         <th>邮箱</th>
+          <th>角色</th>
+         <th>操作</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for user in users %}
+      <tr>
+         <td>
+             <a href="{{ url_for('main.user', username=user.username) }}">
+                <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=25) }}">
+            </a>
+         </td>
+         <td>{{ user.username }}</td>
+         <td>{{ user.email }}</td>
+         <td>{{ user.role.name }}</td>
+         <td>
+             {% if user.confirmed %}
+                 <a href="{{ url_for('auth.unconfirm', user_id=user.id) }}">取消授权</a>
+             {% else %}
+                 <a href="{{ url_for('auth.confirm', user_id=user.id) }}">授权登录</a>
+             {% endif %}
+         </td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
