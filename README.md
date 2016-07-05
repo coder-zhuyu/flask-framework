@@ -1,7 +1,29 @@
-Flasky
-======
+# web框架
 
-This repository contains the source code examples for my O'Reilly book [Flask Web Development](http://www.flaskbook.com).
+## app
+models.py 数据库
+static 资源
+templates html页面
 
-The commits and tags in this repository were carefully created to match the sequence in which concepts are presented in the book. Please read the section titled "How to Work with the Example Code" in the book's preface for instructions.
+
+## migrations
+数据库迁移
+python manage.py db init 创建迁移仓库
+python manage.py db migrate -m "initial migration" 创建迁移脚步
+python manage.py db upgrade 迁移
+
+## requirements
+依赖包
+- common.txt 公共依赖包
+- dev.txt 开发环境 pip install -r dev.txt
+- prod.txt 生产环境 pip install -r prod.txt
+
+## tests
+单元测试
+
+## config.py
+配置文件
+
+## manage.py
+启动文件
 
