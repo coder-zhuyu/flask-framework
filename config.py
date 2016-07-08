@@ -1,4 +1,5 @@
 import os
+import datetime
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -17,6 +18,7 @@ class Config:
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     FLASKY_USERS_PER_PAGE = 20
     FLASKY_SLOW_DB_QUERY_TIME = 0.5
+    PERMANENT_SESSION_LIFETIME = datetime.timedelta(seconds=12*3600)
 
     @staticmethod
     def init_app(app):
