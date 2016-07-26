@@ -46,6 +46,21 @@ class ProductionConfig(Config):
     def init_app(cls, app):
         Config.init_app(app)
 
+        import logging
+        from logging.handlers import RotatingFileHandler
+        file_handler = RotatingFileHandler('/devdmp/log/devdmp.log',
+                                           mode='w', maxBytes=1024 * 1024 * 100,
+                                           backupCount=20,
+                                           encoding="utf-8")
+        file_handler.setLevel(logging.WARNING)
+        app.logger.addHandler(file_handler)
+
+        from logging import Formatter
+        file_handler.setFormatter(Formatter(
+            '%(asctime)s %(levelname)s: %(message)s '
+            '[in %(pathname)s:%(lineno)d]'
+        ))
+
         # email errors to the administrators
         import logging
         from logging.handlers import SMTPHandler
