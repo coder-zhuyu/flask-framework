@@ -52,7 +52,8 @@ class ProductionConfig(Config):
                                            mode='w', maxBytes=1024 * 1024 * 100,
                                            backupCount=20,
                                            encoding="utf-8")
-        file_handler.setLevel(logging.WARNING)
+        # file_handler.setLevel(logging.INFO)
+        logging.basicConfig(level=logging.INFO)
         app.logger.addHandler(file_handler)
 
         from logging import Formatter
